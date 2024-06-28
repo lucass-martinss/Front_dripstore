@@ -4,6 +4,7 @@ import CheckBoxDS from "../CheckBoxDS/CheckBoxDS";
 import "./RegisterForm.css";
 import api from "../../services/api";
 import axios from "axios";
+import InputLabel from "../InputLabel/inputLabel";
 export default function RegisterForm() {
   const inputName = useRef();
   const inputCpf = useRef();
@@ -46,7 +47,7 @@ export default function RegisterForm() {
     setEndereco(data.logradouro)
     setCidade(data.localidade)
     if(data.erro === "true") {
-      alert(`O cep:( ${inputCep.current.value} )  não está cadastrado banco de dados. Por favor verifique se está correto`)
+      alert(`O cep:( ${inputCep.current.value} )  não está cadastrado no banco de dados. Por favor verifique se está correto`)
     }
   }
 
@@ -75,126 +76,72 @@ export default function RegisterForm() {
         <div className="containerInputLabel">
           <h2>Informações Pessoais</h2>
           <hr className="hrFormIP" />
-          <div className="inputLabelContainer">
-            <div className="labelInput">
-              <label htmlFor="">Nome:</label>
-            </div>
-
-            <input
-              className="inputLabel"
-              type="text"
-              placeholder="digite seu nome"
-              ref={inputName}
-            />
-          </div>
-          <div className="inputLabelContainer">
-            <div className="labelInput">
-              <label htmlFor="">Contato:</label>
-            </div>
-
-            <input
-              className="inputLabel"
-              type="text"
-              placeholder="digite seu contato"
-              ref={inputCel}
-            />
-          </div>
-          <div className="inputLabelContainer">
-            <div className="labelInput">
-              <label htmlFor="">Email:</label>
-            </div>
-
-            <input
-              className="inputLabel"
-              type="text"
-              placeholder="digite seu email"
-              ref={inputEmail}
-            />
-          </div>
-          <div className="inputLabelContainer">
-            <div className="labelInput">
-              <label htmlFor="">CPF:</label>
-            </div>
-
-            <input
-              className="inputLabel"
-              type="text"
-              placeholder="digite seu CPF"
-              ref={inputCpf}
-            />
-          </div>
+          <InputLabel 
+            label={"Nome:"}
+            inputRef={inputName}
+            inputType={"text"} 
+            placeHolder={"Digite seu nome"}
+          />
+          <InputLabel
+            label={"Contato:"}
+            inputRef={inputEndereco}
+            inputType={"text"}
+            placeHolder={"Digite seu número de telefone"}
+          />
+          <InputLabel
+            label={"Email:"}
+            inputRef={inputEmail}
+            inputType={"text"}
+            placeHolder={"Digite seu email"}
+          />
+          <InputLabel
+            label={"CPF:"}
+            inputRef={inputCpf}
+            inputType={"text"}
+            placeHolder={"Digite seu CPF"}
+          />
         </div>
         <div className="containerInputLabelIE">
           <h2>Informação Postal</h2>
           <hr className="hrFormIE" />
-          <div className="inputLabelContainer">
-            <div className="labelInput" >
-              <label htmlFor="">Cep:</label>
-            </div>
-
-            <input
-              onChange={handleChange}
-              className="inputLabel"
-              type="text"
-              placeholder="digite seu nome"
-              ref={inputCep}
+            <InputLabel
+              label={"CEP:"}
+              placeHolder={"digite seu Cep"}              
+              inputRef={inputCep}
+              inputOnChange={handleChange}
+              inputType={"text"}
             />
-          </div>
-
-          <div className="inputLabelContainer">
-            <div className="labelInput">
-              <label htmlFor="">Endereço</label>
-            </div>
-
-            <input
-              className="inputLabel"
-              type="text"
-              placeholder="digite seu nome"
-              defaultValue={endereco}
-              ref={inputEndereco}
+            <InputLabel
+              label={"Endereço:"}
+              placeHolder={"digite seu endereço"}
+              inputRef={inputEndereco}
+              inputType={"text"}
+              DefaultValue={endereco}
             />
-          </div>
 
-          <div className="inputLabelContainer">
-            <div className="labelInput">
-              <label htmlFor="">Bairro:</label>
-            </div>
-
-            <input
-              className="inputLabel"
-              type="text"
-              placeholder="digite seu nome"
-              defaultValue={bairro}
-              ref={inputBairro}
-              disabled={respStatus !== "true" } 
+            <InputLabel 
+              label={"Bairro:"}
+              placeHolder={"Digite sua cidade"}
+              inputRef={inputCidade}
+              inputType={"text"}
+              DefaultValue={bairro}
+              Disabled={respStatus !== "true"}
             />
-          </div>
-          <div className="inputLabelContainer">
-            <div className="labelInput">
-              <label htmlFor="">Cidade:</label>
-            </div>
-
-            <input
-              className="inputLabel"
-              type="text"
-              placeholder="digite seu nome"
-              defaultValue={cidade}
-              ref={inputCidade}
-              disabled={respStatus !== "true"} 
+            <InputLabel
+              label={"Cidade:"}
+              inputType={"text"}
+              placeHolder={"digite sua cidade"}
+              DefaultValue={cidade}
+              inputRef={inputCidade}
+              Disabled={respStatus !== "true"} 
             />
-          </div>
           
-          <div className="inputLabelContainer">
-            <div className="labelInput">
-              <label htmlFor="">Complemento:</label>
-            </div>
-
-            <input
-              className="inputLabel"
-              type="text"
-              ref={inputComplement}
+            <InputLabel
+              label={"Complemento:"}
+              inputType={"text"}
+              inputRef={inputComplement}
+              placeHolder={"Digite um complemento"}     
             />
-          </div>
         </div>
 
         <div className="containerEnvEmail">
