@@ -24,7 +24,7 @@ export default function Header() {
             <span className="material-symbols-outlined"><img src={Search}/></span>
           </div>
           <div className="cadastre-se">
-            <a className='ancoraCadastreseHeader' href="/register">Cadastre-se</a>
+            <Link className='ancoraCadastreseHeader' to="/register">Cadastre-se</Link>
             <button className='btnCadastreseHeader'><Link className='btn-login' to="/login">Login</Link></button>
           </div>
           <div className="carrinho">
