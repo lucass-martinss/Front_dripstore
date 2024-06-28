@@ -1,8 +1,9 @@
-import { useRef } from "react";
+import {  useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CheckBoxDS from "../CheckBoxDS/CheckBoxDS";
 import "./RegisterForm.css";
 import api from "../../services/api";
+import axios from "axios";
 export default function RegisterForm() {
   const inputName = useRef();
   const inputCpf = useRef();
@@ -13,6 +14,11 @@ export default function RegisterForm() {
   const inputCidade = useRef();
   const inputCep = useRef();
   const inputComplement = useRef();
+  const [cep, setCep] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [endereco, setEndereco] = useState("");
+  const [cidade, setCidade] = useState("");
+  const [respStatus, setRespStatus] = useState(400);
   const navigate = useNavigate();
 
   async function submitForm() {
@@ -32,6 +38,27 @@ export default function RegisterForm() {
       })
       .then(() => navigate("/"));
   }
+  async  function getCep() { 
+    const resp = await axios.get(`https://viacep.com.br/ws/${inputCep.current.value}/json/`)
+    const data = await resp.data
+    setRespStatus(resp.status)
+    setBairro(data.bairro)
+    setEndereco(data.logradouro)
+    setCidade(data.localidade)
+    console.log(data)
+
+  }
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setCep(e.currentTarget.value)
+  }
+     
+  useEffect(() => {
+    if(cep.length === 8) {
+        getCep()
+    }
+  })
 
   return (
     <>
@@ -94,6 +121,19 @@ export default function RegisterForm() {
         <div className="containerInputLabelIE">
           <h2>Informação Postal</h2>
           <hr className="hrFormIE" />
+          <div className="inputLabelContainer">
+            <div className="labelInput" >
+              <label htmlFor="">Cep:</label>
+            </div>
+
+            <input
+              onChange={handleChange}
+              className="inputLabel"
+              type="text"
+              placeholder="digite seu nome"
+              ref={inputCep}
+            />
+          </div>
 
           <div className="inputLabelContainer">
             <div className="labelInput">
@@ -104,6 +144,7 @@ export default function RegisterForm() {
               className="inputLabel"
               type="text"
               placeholder="digite seu nome"
+              defaultValue={endereco}
               ref={inputEndereco}
             />
           </div>
@@ -117,7 +158,9 @@ export default function RegisterForm() {
               className="inputLabel"
               type="text"
               placeholder="digite seu nome"
+              defaultValue={bairro}
               ref={inputBairro}
+              disabled={respStatus === 200 } 
             />
           </div>
           <div className="inputLabelContainer">
@@ -129,21 +172,12 @@ export default function RegisterForm() {
               className="inputLabel"
               type="text"
               placeholder="digite seu nome"
+              defaultValue={cidade}
               ref={inputCidade}
+              disabled={respStatus === 200 } 
             />
           </div>
-          <div className="inputLabelContainer">
-            <div className="labelInput">
-              <label htmlFor="">Cep:</label>
-            </div>
-
-            <input
-              className="inputLabel"
-              type="text"
-              placeholder="digite seu nome"
-              ref={inputCep}
-            />
-          </div>
+          
           <div className="inputLabelContainer">
             <div className="labelInput">
               <label htmlFor="">Complemento:</label>
