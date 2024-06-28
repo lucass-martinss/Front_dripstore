@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import "./Item.css";
 
-export default function Item(props) {
+export default function Item({foto, label}) {
   return (
     <div className="label">
       <div id="item">
-        <img src={props.foto} alt="" />
+        <img src={foto} alt="" />
       </div>
-      <label htmlFor="">{props.label}</label>
+      <label htmlFor="">{label}</label>
     </div>
   );
 }

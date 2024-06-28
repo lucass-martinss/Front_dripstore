@@ -18,7 +18,7 @@ export default function RegisterForm() {
   const [bairro, setBairro] = useState("");
   const [endereco, setEndereco] = useState("");
   const [cidade, setCidade] = useState("");
-  const [respStatus, setRespStatus] = useState(400);
+  const [respStatus, setRespStatus] = useState("true");
   const navigate = useNavigate();
 
   async function submitForm() {
@@ -41,12 +41,13 @@ export default function RegisterForm() {
   async  function getCep() { 
     const resp = await axios.get(`https://viacep.com.br/ws/${inputCep.current.value}/json/`)
     const data = await resp.data
-    setRespStatus(resp.status)
+    setRespStatus(data.erro)
     setBairro(data.bairro)
     setEndereco(data.logradouro)
     setCidade(data.localidade)
-    console.log(data)
-
+    if(data.erro === "true") {
+      alert(`O cep:( ${inputCep.current.value} )  não está cadastrado banco de dados. Por favor verifique se está correto`)
+    }
   }
 
   const handleChange = (e) => {
@@ -57,8 +58,13 @@ export default function RegisterForm() {
   useEffect(() => {
     if(cep.length === 8) {
         getCep()
+    }else {
+      setEndereco("")
+      setCidade("");
+      setBairro("");
+      setRespStatus("true")
     }
-  })
+  },[cep])
 
   return (
     <>
@@ -160,7 +166,7 @@ export default function RegisterForm() {
               placeholder="digite seu nome"
               defaultValue={bairro}
               ref={inputBairro}
-              disabled={respStatus === 200 } 
+              disabled={respStatus !== "true" } 
             />
           </div>
           <div className="inputLabelContainer">
@@ -174,7 +180,7 @@ export default function RegisterForm() {
               placeholder="digite seu nome"
               defaultValue={cidade}
               ref={inputCidade}
-              disabled={respStatus === 200 } 
+              disabled={respStatus !== "true"} 
             />
           </div>
           
@@ -186,7 +192,6 @@ export default function RegisterForm() {
             <input
               className="inputLabel"
               type="text"
-              placeholder="digite seu nome"
               ref={inputComplement}
             />
           </div>
