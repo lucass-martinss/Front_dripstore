@@ -1,0 +1,114 @@
+.footer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #1F1F1F;
+    height: 60vh;
+    width: 100%;
+    justify-content: center;
+  }
+  .footer-content {
+    margin-top: 10vh;
+    width: 100VW;
+    height: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .col-1 {
+    gap: 4vh;
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    flex-direction: column;
+    width: 20vw;
+  }
+  .col-1 > .containerParagraphFooter > .paragraphFooter {
+    color: white;
+  }
+  #logo-footer > .paragraphLogoFooter {
+    color: white;
+  }
+  .redes-sociais {
+    width: fit-content;
+  }
+  .col-info {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+  }
+  .col-info > .titleColInfo {
+    color: white;
+    font-family: "inter", sans-serif;
+  }
+  
+  #option  {
+    width: fit-content;
+    height: fit-content;
+    gap: 1.5vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    
+  }
+  
+  .col-categorias {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+  }
+  .col-categorias > .titleColCategorias {
+    color: white;
+    font-family: "inter", sans-serif;
+  }
+  #categoria {
+    width: fit-content;
+    height: fit-content;
+    gap: 1.5vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+  
+  .col-contato {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+  }
+  .col-contato > .titleColContato {
+    color: white;
+    font-family: "inter", sans-serif;
+  }
+  #contato {
+    width: fit-content;
+    height: fit-content;
+    gap: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+  #linha {
+    width: 80vw;
+    display: flex;
+    align-self: flex-start;
+  }
+  #linha > .hrLinhaFooter {
+    border-color: #525252;
+    width: 100%;
+    border-top: none;
+    
+  }
+  .copy {
+    color: white;
+    display: flex;
+    width: 100vw;
+    align-self: flex-start;
+    justify-content: center;
+  }
+  

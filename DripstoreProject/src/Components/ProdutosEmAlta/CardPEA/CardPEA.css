@@ -1,0 +1,65 @@
+.card-tenis {
+    height: 45vh;
+    width: 20vw;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.075);
+    border-radius: 10px;
+  }
+  #tenis1 {
+    background-image: url(../../../assets/tenis.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .card-tenis > p {
+    width: 5.5vw;
+    display: flex;
+    padding: 10px 15px;
+    margin: 25px 25px;
+    gap: 10px;
+    border-radius: 29px;
+    background: #eeff018e;
+  }
+  #port-ten-card {
+    display: flex;
+    align-items: flex-start;
+  }
+  #port-ten-card > p {
+    color: #8f8f8f;
+    font-family: "inter", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.75px;
+  }
+  #port-ten-card > h4 {
+    color: #474747;
+    font-family: "inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: 0.75px;
+  }
+  #de {
+    color:  #8F8F8F;
+  font-family: "inter", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 38px; 
+  letter-spacing: 0.75px;
+  text-decoration: line-through;
+  }
+  
+  #por {
+    color:  #1F1F1F;
+  font-family: "inter", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 38px; 
+  letter-spacing: 0.75px;
+  }
+  .preco {
+    gap: 1vw;
+    display: flex;
+  }

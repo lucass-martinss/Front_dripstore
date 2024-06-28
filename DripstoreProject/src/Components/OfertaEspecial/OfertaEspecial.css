@@ -1,0 +1,73 @@
+.img-air-jordan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 466px;
+  height: 466px;
+  flex-shrink: 0;
+  border-radius: 466px;
+  background: linear-gradient(
+    180deg,
+    rgba(66, 0, 255, 0.25) -40.67%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.oferta-especial{
+  background-color: #FFFFFF;
+  display:flex;
+  justify-content: center;
+}
+.containerOferta-especialContent {
+  padding: 10%;
+  gap: 8vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  width: 100%;
+}
+.img-air-jordan > img {
+  width: 573px;
+  height: 330px;
+  flex-shrink: 0;
+}
+.text-especial > h4 {
+  color: #c92071;
+  font-family: "inter", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 34px;
+  letter-spacing: 0.75px;
+  margin: 0 0 4vh;
+}
+.text-especial > h2 {
+  color: #474747;
+  font-family: Inter;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px;
+  letter-spacing: 1px;
+}
+.text-especial > p {
+  color: #474747;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.75px;
+}
+.text-especial > button {
+  margin-top: 6vh;
+  color: white;
+  background-color: #c92071;
+  border: none;
+  border-radius: 8px;
+  height: 7vh;
+  width: 12vw;
+  font-size: 16px;
+  font-size: medium;
+  font-weight: 600;
+  cursor: pointer;
+}

@@ -1,0 +1,46 @@
+.destaques {
+    height: 70vh;
+    width: 100%;
+    background-color: rgb(250, 248, 248);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .title-destaque {
+    color: #474747;
+    font-family: "inter", sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: 0.75px;
+  }
+  
+  .title-destaque .titleColecoesDestaque {
+    padding-left: 7vw;
+    padding-top: 5vh;
+  }
+  .card-destaque {
+    width: 98.8vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+  }
+  
+  #card1 {
+    background-image: url(../../assets/t-shirt-star-wars.png);
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+  #card2 {
+    background-image: url(../../assets/tenis-adidas.png);
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+  #card3 {
+    background-image: url(../../assets/beats-bass.png);
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+  

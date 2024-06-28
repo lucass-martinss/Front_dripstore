@@ -1,0 +1,27 @@
+
+.containerProductPage{
+    background-color: #faf8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bh{
+
+    display: flex;
+    justify-content: space-between;
+    justify-self: center;
+    width: 85vw;
+    padding: 5vh;
+}
+.bh > div {
+    display: flex;
+    align-items: center;
+}
+.bh > div > strong {
+    font-size: 0.9rem;
+    padding: 0 0.5vw 0 0;
+}
+.bh>div>p{
+    font-size: 0.82rem;
+    color: rgb(139, 139, 139);
+}

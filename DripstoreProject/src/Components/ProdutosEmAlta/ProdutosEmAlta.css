@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.produto-em-alta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 150vh;
+    background-color: #faf8f8;
+  }
+  .section-title {
+    display: flex;
+    height: 8vh;
+    width: 83vw;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .section-title > h3 {
+    color: #1f1f1f;
+    font-family: "inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 1px;
+    margin-bottom: 5vh;
+  }
+  .section-title > div {
+    display: flex;
+    gap: 0.5vw;
+  }
+  .section-title > div > p {
+    color: #c92071;
+    font-family: "inter", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 34px;
+    letter-spacing: 0.75px;
+    cursor: pointer;
+  }
+  
+  .tenis-destaque {
+    width: 85vw;
+    height: 140vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1vw;
+  }
+  

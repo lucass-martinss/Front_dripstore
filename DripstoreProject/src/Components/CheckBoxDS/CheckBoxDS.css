@@ -1,0 +1,24 @@
+.CheckBoxContainer {
+    display: flex;
+    margin: 2vh 0;
+  }
+  .CheckBoxContainer > .checkElement{
+    height: 18px;
+    width: 18px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    margin: 0 1vw 0 0;
+    appearance: none;
+    border-radius: 2px;
+    display: flex;
+  }
+  
+  .checkElement[type="checkbox"]:checked::before {
+    background-color: #c92071;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1px;
+    content: url("../../assets/Vector 3.png");
+  }

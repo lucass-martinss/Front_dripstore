@@ -1,0 +1,60 @@
+
+.dv{
+    display: flex;
+    justify-content: center;
+}
+.dv1 {
+  border-radius: 5px;
+  background-color: white;
+  height: 125vh;
+  width: 90vw;
+  box-shadow: 0 0 8px rgb(230, 230, 230);
+}
+
+.dv2 {
+  padding: 3vh 1.5vw;
+}
+.dv2 > .titleFilterObject {
+  font-size: 0.9rem;
+}
+.dv2 > .hrFilterObject {
+  margin: 3vh 0;
+}
+.dv2 > .subTitleFilterObject {
+  font-size: 0.8rem;
+}
+.opt1 {
+  display: flex;
+  margin: 2vh 0;
+}
+.opt1 > .checkFilterObject{
+  height: 18px;
+  width: 17.5px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  margin: 0 1vw 0 0;
+  appearance: none;
+  border-radius: 2px;
+  display: flex;
+}
+
+.checkFilterObject[type="checkbox"]:checked::before {
+  background-color: #c92071;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1px;
+  content: url("../../assets/Vector 3.png");
+}
+.container {
+  display: flex;
+  width: 85vw;
+ gap: 3.5%;
+  padding: 5vh;
+}
+.cards {
+  gap: 2%;
+  display: flex;
+  flex-wrap: wrap;
+}

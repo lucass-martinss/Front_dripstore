@@ -1,0 +1,49 @@
+.card {
+  border-radius: 8px;
+  background-color: #d8e3f2;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  height: 40vh;
+  width: 27.5vw;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3.5vh;
+  padding-left: 2vw;
+}
+.card-content > .paragraphDesconto {
+  width: 5vw;
+  display: inline-flex;
+  padding: 5px 15px;
+  gap: 10px;
+  border-radius: 29px;
+  background: #eeff018e;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.card-content > .titleCardDestaque{
+  color: #1f1f1f;
+  font-family: "inter", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 1px;
+  width: 16vw;
+}
+.card-content > .btnComprarCardDestaque {
+  color: #c92071;
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  height: 7vh;
+  width: 12vw;
+  font-size: 16px;
+  font-size: medium;
+  font-weight: 600;
+  cursor: pointer;
+}
