@@ -17,10 +17,7 @@ return (
             sed do eiusmod tempor incididunt ut labore et dolore.
             </p>
           </div>
-          <div className="redes-sociais">
-            <img src="Assets/Images/redes-sociais.png" alt=""/>
-          </div>
-  
+
         </div>
         <div className="col-info">
           <h4 className='titleColInfo' >Informação</h4>
