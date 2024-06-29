@@ -58,7 +58,7 @@ export default function RegisterForm() {
      
   useEffect(() => {
     if(cep.length === 8) {
-        getCep()
+        return getCep()
     }else {
       setEndereco("")
       setCidade("");
