@@ -23,8 +23,7 @@ export default function RegisterForm() {
   const navigate = useNavigate();
 
   async function submitForm() {
-    await api
-      .post("/clients", {
+    await api.post("/clients", {
         name: inputName.current.value,
         telefone: inputCel.current.value,
         email: inputEmail.current.value,
