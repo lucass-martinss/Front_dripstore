@@ -5,6 +5,7 @@ import "./RegisterForm.css";
 import api from "../../services/api";
 import axios from "axios";
 import InputLabel from "../InputLabel/inputLabel";
+
 export default function RegisterForm() {
   const inputName = useRef();
   const inputCpf = useRef();
@@ -50,6 +51,12 @@ export default function RegisterForm() {
     }
   }
 
+  const addressClean = () => {
+    setEndereco("")
+    setCidade("");
+    setBairro("");
+    setRespStatus("true")
+  }
   const handleChange = (e) => {
     e.preventDefault();
     setCep(e.currentTarget.value)
@@ -57,12 +64,9 @@ export default function RegisterForm() {
      
   useEffect(() => {
     if(cep.length === 8) {
-        return getCep()
+        getCep()
     }else {
-      setEndereco("")
-      setCidade("");
-      setBairro("");
-      setRespStatus("true")
+      addressClean()
     }
   },[cep])
 
@@ -105,7 +109,8 @@ export default function RegisterForm() {
           <hr className="hrFormIE" />
             <InputLabel
               label={"CEP:"}
-              placeHolder={"digite seu Cep"}              
+              placeHolder={"digite seu Cep"}  
+              DefaultValue={cep}            
               inputRef={inputCep}
               inputOnChange={handleChange}
               inputType={"text"}
