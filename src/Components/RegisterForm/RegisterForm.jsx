@@ -38,6 +38,7 @@ export default function RegisterForm() {
         },
       })
       .then(() => navigate("/"));
+      console.log(submitForm())
   }
   async  function getCep() { 
     const resp = await axios.get(`https://viacep.com.br/ws/${inputCep.current.value}/json/`)
@@ -87,7 +88,7 @@ export default function RegisterForm() {
           />
           <InputLabel
             label={"Contato:"}
-            inputRef={inputEndereco}
+            inputRef={inputCel}
             inputType={"text"}
             placeHolder={"Digite seu número de telefone"}
           />
@@ -126,7 +127,7 @@ export default function RegisterForm() {
             <InputLabel 
               label={"Bairro:"}
               placeHolder={"Digite sua cidade"}
-              inputRef={inputCidade}
+              inputRef={inputBairro}
               inputType={"text"}
               DefaultValue={bairro}
               Disabled={respStatus !== "true"}
