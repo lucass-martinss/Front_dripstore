@@ -46,4 +46,3 @@ Configure as variáveis de ambiente do backend:
 Crie um arquivo .env na pasta backend e adicione suas variáveis de ambiente, incluindo a URL de conexão do MongoDB.
 Inicie o servidor do backend:
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
-

@@ -98,7 +98,6 @@ export default function RegisterForm() {
             inputType={"text"}
             placeHolder={"Digite seu email"}
           />
-          
           <InputLabel
             label={"CPF:"}
             inputRef={inputCpf}
