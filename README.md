@@ -1,5 +1,5 @@
 # Projeto Fullstack com ReactJS e Node.js
-[foto da home](./src/assets/Dripstore-home.jpeg)
+<img alt="Home da pagina web" src="./src/assets/Dripstore-home.jpeg" />
 ## Descrição
 Este projeto é uma aplicação web fullstack que utiliza ReactJS no frontend e Node.js no backend. O objetivo do projeto é para fins de estudos e conclusão do curso fullstack na Digital College. O desenvolvimento de um ecommerce com e UI de fácil navegação e um gerenciamento de cadastro de clientes, com dados hospedados em um banco de dados MongoDB.
 
