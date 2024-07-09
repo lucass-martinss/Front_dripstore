@@ -38,7 +38,6 @@ export default function RegisterForm() {
         },
       })
       .then(() => navigate("/"));
-      console.log(submitForm())
   }
   async  function getCep() { 
     const resp = await axios.get(`https://viacep.com.br/ws/${inputCep.current.value}/json/`)
@@ -157,7 +156,7 @@ export default function RegisterForm() {
             do cliente.
           </p>
         </div>
-        <button className="btnRegister" onClick={submitForm}>
+        <button className="btnRegister" onClick={() => submitForm()}>
           Criar conta
         </button>
       </div>
