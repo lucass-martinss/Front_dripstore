@@ -1,0 +1,26 @@
+.bodyInformacoes {
+    width: 20vw;
+    height: 40vh;
+    background-color: red;
+}
+
+.childBody {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+}
+
+.divInformacoes {
+    margin-top: 3.5vh;
+}
+
+.divInformacoes > h3 {
+    font-size: 14px;
+    color: rgb(71, 71, 71);
+}
+
+.hrBoxInformacoes {
+    width: 15vw;
+    border: 1px solid rgb(204, 204, 204);
+    margin-top: 3vh;
+}
