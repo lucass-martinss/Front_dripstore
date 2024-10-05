@@ -13,8 +13,9 @@ function Form() {
     e.preventDefault();
     try {
       const result = await authUser(email, senha);
+      console.log(result.data)
       if (result && result.status === 200) {
-        setSuccess('Login realizado com sucesso!');
+        setSuccess(result.data.message);
         setError('');
       } else {
         setError('Falha no login. Verifique suas credenciais.');
@@ -43,7 +44,7 @@ function Form() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div className="senhaInput">
+        <div className="passwordInput">
           <label htmlFor="senha">Senha *</label>
           <input 
             type="password" 
