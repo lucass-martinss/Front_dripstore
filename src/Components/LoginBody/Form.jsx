@@ -1,36 +1,71 @@
-import { Link } from "react-router-dom"
-import Icons from "../../assets/Icons.png"
+import { Link } from "react-router-dom";
+import Icons from "../../assets/Icons.png";
+import { useState } from "react";
+import { authUser } from "../../services/UsuarioServices/usuariosService";
 
 function Form() {
-    return (
-      <>
-      <div className="Form">
-        <div className="Titles">
-          <h1>Acesse sua conta</h1>
-          <p className="titlesForm">Novo cliente? Então registre-se  <Link to="/register" >aqui</Link> </p>
-        </div>
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await authUser(email, senha);
+      if (result && result.status === 200) {
+        setSuccess('Login realizado com sucesso!');
+        setError('');
+      } else {
+        setError('Falha no login. Verifique suas credenciais.');
+        setSuccess('');
+      }
+    } catch (error) {
+      setError('Erro ao fazer login. Tente novamente.');
+      setSuccess('');
+    }
+  };
+
+  return (
+    <div className="Form">
+      <div className="Titles">
+        <h1>Acesse sua conta</h1>
+        <p className="titlesForm">Novo cliente? Então registre-se <Link to="/register">aqui</Link></p>
+      </div>
+      <form onSubmit={handleLogin}>
         <div className="emailInput">
-            <label htmlFor="">Login *</label>
-            <input type="email" name="" placeholder="Insira seu login ou email" />
+          <label htmlFor="email">Login *</label>
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="Insira seu login ou email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
-        <div className="passwordInput">
-            <label htmlFor="">Senha *</label>
-            <input type="password" name="" placeholder="Insira seu login ou email"/>
-            <Link  className="Link" to="/forgotPassword">Esqueci minha senha</Link>
+        <div className="senhaInput">
+          <label htmlFor="senha">Senha *</label>
+          <input 
+            type="password" 
+            name="senha" 
+            placeholder="Insira sua senha"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+          />
+          <Link className="Link" to="/forgotsenha">Esqueci minha senha</Link>
         </div>
         <div>
-          <button className="button">Acessar Conta</button>  
+          <button className="button" type="submit">Acessar Conta</button>
         </div>
-        <div className="Icons">
-          <p>Ou faça login como</p>
-          <img src={Icons} alt="" />
-        </div>
-
+      </form>
+      {error && <p className="error-message">{error}</p>}
+      {success && <p className="success-message">{success}</p>}
+      <div className="Icons">
+        <p>Ou faça login como</p>
+        <img src={Icons} alt="Login Icons" />
       </div>
+    </div>
+  );
+}
 
-      </>
-    )
-  }
-  
-  export default Form
-  
+export default Form;

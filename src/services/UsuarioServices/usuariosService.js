@@ -14,21 +14,18 @@ export const getData = async () => {
 };
 
 // Função de autenticação de usuário
-export const authUser = async (email, password) => {
+export const authUser = async (email, senha) => {
     try {
-        const response = await axios.post(`${URL_PATH}/usuarios/login`, { email, password });
-        
-        if (response.status === 200) {
-            const token = response.data.token; 
+        const resp = await axios.post(`${URL_PATH}/usuarios/login`, { email, senha });
+        if (resp.status === 200) {
+            const token = resp.data.token; // Corrigido para usar resp.data
             localStorage.setItem('token', token);
-            return response.data;
         }
-
+        return resp;
     } catch (error) {
-        console.error("Erro ao autenticar usuário:", error);
-        throw new Error(error.response?.data?.message || "Erro de autenticação");
+        return new Error(error.response ? error.response.data.error : error.message); // Melhor tratamento de erro
     }
-};
+}
 
 // Função para deletar usuário por ID
 export const deleteData = async (id) => {
