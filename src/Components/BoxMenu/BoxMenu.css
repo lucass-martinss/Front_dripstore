@@ -1,7 +1,8 @@
 .bodyInformacoes {
     width: 20vw;
     height: 40vh;
-    background-color: red;
+    background-color: rgb(255, 252, 252);
+    border-radius: 5px;
 }
 
 .childBody {
@@ -12,6 +13,7 @@
 
 .divInformacoes {
     margin-top: 3.5vh;
+    cursor: pointer;
 }
 
 .divInformacoes > h3 {

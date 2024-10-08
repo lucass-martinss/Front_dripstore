@@ -1,4 +1,5 @@
 import axios from "axios";
+import { json } from "react-router-dom";
 
 const URL_PATH = "http://localhost:3000";
 
@@ -18,14 +19,19 @@ export const authUser = async (email, senha) => {
     try {
         const resp = await axios.post(`${URL_PATH}/usuarios/login`, { email, senha });
         if (resp.status === 200) {
-            const token = resp.data.token; // Corrigido para usar resp.data
+            const {token, usuario} = resp.data; // Corrigido para usar resp.data
             localStorage.setItem('token', token);
+            localStorage.setItem('usuario', JSON.stringify(usuario))
         }
         return resp;
     } catch (error) {
         return new Error(error.response ? error.response.data.error : error.message); // Melhor tratamento de erro
     }
 }
+export const logoutUser = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
+};
 
 // Função para deletar usuário por ID
 export const deleteData = async (id) => {
@@ -50,9 +56,9 @@ export const updateData = async (id, usuario) => {
 };
 
 // Função para criar um novo usuário
-export const createData = async (usuario) => {
+export const createUsuario = async (usuario) => {
     try {
-        const response = await axios.post(`${URL_PATH}/usuarios`, usuario);
+        const response = await axios.post(`${URL_PATH}/usuarios/register`, usuario);
         return response.data;
     } catch (error) {
         console.error("Erro ao criar usuário:", error);

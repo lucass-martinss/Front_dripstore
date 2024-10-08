@@ -2,20 +2,21 @@ import {  useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CheckBoxDS from "../CheckBoxDS/CheckBoxDS";
 import "./RegisterForm.css";
-import api from "../../services/api";
+import {createUsuario} from "../../services/UsuarioServices/usuariosService";
 import axios from "axios";
 import InputLabel from "../InputLabel/inputLabel";
 
 export default function RegisterForm() {
-  const inputName = useRef();
+  const inputNome = useRef();
   const inputCpf = useRef();
   const inputEmail = useRef();
-  const inputCel = useRef();
+  const inputTelefone = useRef();
   const inputEndereco = useRef();
   const inputBairro = useRef();
   const inputCidade = useRef();
   const inputCep = useRef();
-  const inputComplement = useRef();
+  const inputComplemento = useRef();
+  const inputSenha = useRef();
   const [cep, setCep] = useState("");
   const [bairro, setBairro] = useState("");
   const [endereco, setEndereco] = useState("");
@@ -23,22 +24,33 @@ export default function RegisterForm() {
   const [respStatus, setRespStatus] = useState("true");
   const navigate = useNavigate();
 
-  async function submitForm() {
-    await api.post("/clients", {
-        name: inputName.current.value,
-        telefone: inputCel.current.value,
-        email: inputEmail.current.value,
-        cpf: inputCpf.current.value,
-        address: {
-          street: inputEndereco.current.value,
-          Neighborhood: inputBairro.current.value,
-          City: inputCidade.current.value,
-          Zip: inputCep.current.value,
-          Complement: inputComplement.current.value,
+  const submitForm = async () => {
+    const usuario = {
+      nome: inputNome.current.value,
+      telefone: inputTelefone.current.value,
+      email: inputEmail.current.value,
+      cpf: inputCpf.current.value,
+      senha: inputSenha.current.value,
+      enderecos: [
+        {
+          rua: inputEndereco.current.value,
+          bairro: inputBairro.current.value,
+          cidade: inputCidade.current.value,
+          cep: inputCep.current.value,
+          complemento: inputComplemento.current.value,
         },
-      })
-      .then(() => navigate("/"));
-  }
+      ],
+    };
+
+    try {
+       await createUsuario(usuario);
+      alert("Usuário registrado com sucesso!");
+      navigate("/login"); // Redireciona para a página de login
+    } catch (error) {
+      console.error("Erro ao registrar usuário:", error);
+      alert("Erro ao registrar. Tente novamente.");
+    }
+  };
   async  function getCep() { 
     const resp = await axios.get(`https://viacep.com.br/ws/${inputCep.current.value}/json/`)
     const data = await resp.data
@@ -51,7 +63,7 @@ export default function RegisterForm() {
     }
   }
 
-  const addressClean = () => {
+  const enderecoClean = () => {
     setEndereco("")
     setCidade("");
     setBairro("");
@@ -66,7 +78,7 @@ export default function RegisterForm() {
     if(cep.length === 8) {
         getCep()
     }else {
-      addressClean()
+      enderecoClean()
     }
   },[cep])
 
@@ -76,33 +88,41 @@ export default function RegisterForm() {
         <div className="titleRegister">
           <h1>Criar Conta</h1>
         </div>
-        <div className="containerInputLabel">
+        <div className="containerInputLabel-IP">
           <h2>Informações Pessoais</h2>
           <hr className="hrFormIP" />
           <InputLabel 
-            label={"Nome:"}
-            inputRef={inputName}
+            label={"Nome Completo *"}
+            inputRef={inputNome}
             inputType={"text"} 
-            placeHolder={"Digite seu nome"}
+            placeHolder={"Insira seu nome"}
           />
           <InputLabel
-            label={"Contato:"}
-            inputRef={inputCel}
-            inputType={"text"}
-            placeHolder={"Digite seu número de telefone"}
-          />
-          <InputLabel
-            label={"Email:"}
-            inputRef={inputEmail}
-            inputType={"text"}
-            placeHolder={"Digite seu email"}
-          />
-          <InputLabel
-            label={"CPF:"}
+            label={"CPF *"}
             inputRef={inputCpf}
             inputType={"text"}
-            placeHolder={"Digite seu CPF"}
+            placeHolder={"Insira seu CPF"}
           />
+          <InputLabel
+            label={"E-mail *"}
+            inputRef={inputEmail}
+            inputType={"text"}
+            placeHolder={"Insira seu email"}
+          />
+          <InputLabel
+            label={"Celular *"}
+            inputRef={inputTelefone}
+            inputType={"text"}
+            placeHolder={"Insira seu celular"}
+          />
+          <InputLabel
+            label={"Senha *"}
+            inputRef={inputSenha}
+            inputType={"password"}
+            placeHolder={"Insira sua senha"}
+          />
+
+          
         </div>
         <div className="containerInputLabelIE">
           <h2>Informação Postal</h2>
@@ -143,7 +163,7 @@ export default function RegisterForm() {
             <InputLabel
               label={"Complemento:"}
               inputType={"text"}
-              inputRef={inputComplement}
+              inputRef={inputComplemento}
               placeHolder={"Digite um complemento"}     
             />
         </div>

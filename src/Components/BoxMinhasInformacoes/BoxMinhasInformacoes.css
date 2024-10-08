@@ -1,19 +1,18 @@
-.bodyMeusPedidos {
+.bodyMinhasInformacoes {
     width: 65vw;
-    height: 50vh;
+    height: 65vh;
+    border-radius: 5px;
     background-color: rgb(255, 255, 255);
 }
 
-.childBodyMeusPedidos {
+.childBodyMinhasInformacoes {
     display: flex;
     flex-direction: column;
     margin-left: 2vw;
 }
 
-.divInformacoesMeusPedidos {
-    margin-top: 3.5vh;
-    display: flex;
-    justify-content: space-between;
+.divInformacoesMinhasInformacoes {
+    margin-top: 3.5vh; 
     width: 60vw;
 }
 
@@ -51,27 +50,20 @@
     color: rgb(71, 71, 71);
 }
 
-.hrMeusPedidos {
+.hrMinhasInformacoes {
     width: 60vw;
     border: 1px solid rgb(204, 204, 204);
     margin-top: 3vh;
 }
 
-.divInformacoesMeusPedidos > h3 {
+.divInformacoesMinhasInformacoes > ul > li {
+    text-decoration: none;
+    text-transform: none;
     font-size: 14px;
+    margin-top: 1vh;
     color: rgb(71, 71, 71);
 }
-
-.divImg {
-    width: 10vw;
-    height: 15vh;
-    background-color: rgb(226, 227, 255);
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.divInformacoesMinhasInformacoes > ul {
+    list-style: none;
 }
 
-.divImg > img {
-    width: 6vw;
-}

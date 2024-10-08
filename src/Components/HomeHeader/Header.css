@@ -105,7 +105,16 @@
   margin-left: 2vw;
   cursor: pointer;
 }
-
+.VectorProfile {
+  display: flex;
+  gap: 1vw;
+}
+.VectorProfile > .imgProfileHeader {
+  cursor: pointer;
+}
+.VectorProfile > .usuarioName {
+  align-self: self-end;  
+}
 .carrinho > .imgCarrinhoHeader {
   display: flex;
   cursor: pointer;

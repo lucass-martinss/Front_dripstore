@@ -34,6 +34,12 @@
     font-size: 0.9rem;
     margin: 0 0 2vh;
   }
+  .containerInputLabel-IP {
+    width: 40vw;
+    height: 76vh;
+    background-color: white;
+    border-radius: 4px;
+}
 
 
   

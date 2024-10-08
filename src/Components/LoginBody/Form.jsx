@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Icons from "../../assets/Icons.png";
 import { useState } from "react";
 import { authUser } from "../../services/UsuarioServices/usuariosService";
@@ -8,15 +8,16 @@ function Form() {
   const [senha, setSenha] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const result = await authUser(email, senha);
-      console.log(result.data)
       if (result && result.status === 200) {
         setSuccess(result.data.message);
         setError('');
+        navigate('/')
       } else {
         setError('Falha no login. Verifique suas credenciais.');
         setSuccess('');

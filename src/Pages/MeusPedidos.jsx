@@ -5,7 +5,6 @@ function MeusPedidos() {
       <>
         <Header></Header>
         <BodyMeusPedidos>
-            
         </BodyMeusPedidos>
       </>
     )
