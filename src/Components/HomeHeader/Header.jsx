@@ -6,9 +6,11 @@ import VectorProfile from '../../assets/VectorProfile.png'
 import { Link } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import { logoutUser } from '../../services/UsuarioServices/usuariosService'
+import ModalCarrinho from '../ModalCarrinho/ModalCarrinho'
 
 export default function Header() {
   const [usuario, setUsuario] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const storedUsuario = JSON.parse(localStorage.getItem('usuario'));
@@ -20,6 +22,14 @@ export default function Header() {
   const handleLogout = () => {
     logoutUser();
     window.location.reload();
+  };
+
+  const handleMouseEnter = () => {
+    setModalOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setModalOpen(false);
   };
   return (
     <>
@@ -41,12 +51,15 @@ export default function Header() {
           </div>
           {usuario 
           ? (<>
-            <div className="carrinho">
+            <div className="carrinho"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}>
               <img
                 className='imgCarrinhoHeader'
                 src={Carrinho}
                 alt=""
               />
+              {modalOpen && <ModalCarrinho/>}
             </div>
             <div className="VectorProfile">
               <img
@@ -66,12 +79,15 @@ export default function Header() {
                 <Link className='ancoraCadastreseHeader' to="/register">Cadastre-se</Link>
                 <button className='btnCadastreseHeader'><Link className='btn-login' to="/login">Login</Link></button>
               </div>
-              <div className="carrinho">
+              <div className="carrinho"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}>
                 <img
                   className='imgCarrinhoHeader'
                   src={Carrinho}
                   alt=""
                 />
+                {modalOpen && <ModalCarrinho/>}
               </div>
             </>)}
 

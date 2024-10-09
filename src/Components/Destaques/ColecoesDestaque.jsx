@@ -1,5 +1,5 @@
 import CardDestaques from './Card/CardDestaques';
-import './colecoesDestaque.css'
+import './ColecoesDestaque.css'
 
  function ColecaoDestaque () {
 
