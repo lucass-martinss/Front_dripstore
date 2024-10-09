@@ -32,6 +32,9 @@ export default function BoxMinhasInformacoes() {
             <h2>Informações pessoais</h2>
             <ul>
               <li>Nome: {usuario != null ? usuario.nome : ""}</li>
+              {/* <Label
+                label={`Nome: ${usuario != null ? usuario.nome : ""}`}
+              /> */}
               <li>CPF: {usuario != null ? usuario.cpf : ""}</li>
               <li>Email: {usuario != null ? usuario.email : ""}</li>
               <li>Celular: {usuario != null ? usuario.telefone : ""}</li>
