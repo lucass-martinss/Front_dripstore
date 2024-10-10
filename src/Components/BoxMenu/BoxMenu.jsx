@@ -9,7 +9,7 @@ export default function BoxMenu() {
                     <hr className='hrBoxInformacoes'/>
                 </div>
                 <div className='divInformacoes'>
-                    <Link to="pedidos-info" >Meus Pedidos</Link>
+                    <Link to="/meusPedidos" >Meus Pedidos</Link>
                     <hr className='hrBoxInformacoes'/>
                 </div>
                 <div className='divInformacoes'>

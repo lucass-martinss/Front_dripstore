@@ -15,6 +15,7 @@ export default function Header() {
     if (storedUsuario) {
       setUsuario(storedUsuario);
     }
+    console.log(storedUsuario)
   }, []);
 
   const handleLogout = () => {

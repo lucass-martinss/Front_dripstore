@@ -19,7 +19,8 @@ export const authUser = async (email, senha) => {
     try {
         const resp = await axios.post(`${URL_PATH}/usuarios/login`, { email, senha });
         if (resp.status === 200) {
-            const {token, usuario} = resp.data; // Corrigido para usar resp.data
+            const {token, usuario} = resp.data;
+            console.log(`A resposta do servidor deu certo  no userService: -- ${resp.data}`) // Corrigido para usar resp.data
             localStorage.setItem('token', token);
             localStorage.setItem('usuario', JSON.stringify(usuario))
         }

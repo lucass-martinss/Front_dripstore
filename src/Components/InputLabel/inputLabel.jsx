@@ -2,6 +2,7 @@ import './inputLabel.css';
 
 const InputLabel = (
     {
+        classCss,
         inputRef, 
         label, 
         inputType, 
@@ -18,7 +19,7 @@ const InputLabel = (
         </div>
 
         <input
-          className="inputLabel"
+          className={classCss}
           type={inputType}
           ref={inputRef}
           placeholder={placeHolder}

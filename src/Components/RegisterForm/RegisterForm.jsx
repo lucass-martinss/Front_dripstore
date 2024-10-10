@@ -92,30 +92,35 @@ export default function RegisterForm() {
           <h2>Informações Pessoais</h2>
           <hr className="hrFormIP" />
           <InputLabel 
+            classCss={"inputLabel"}
             label={"Nome Completo *"}
             inputRef={inputNome}
             inputType={"text"} 
             placeHolder={"Insira seu nome"}
           />
           <InputLabel
+            classCss={"inputLabel"}
             label={"CPF *"}
             inputRef={inputCpf}
             inputType={"text"}
             placeHolder={"Insira seu CPF"}
           />
           <InputLabel
+            classCss={"inputLabel"}
             label={"E-mail *"}
             inputRef={inputEmail}
             inputType={"text"}
             placeHolder={"Insira seu email"}
           />
           <InputLabel
+            classCss={"inputLabel"}
             label={"Celular *"}
             inputRef={inputTelefone}
             inputType={"text"}
             placeHolder={"Insira seu celular"}
           />
           <InputLabel
+            classCss={"inputLabel"}
             label={"Senha *"}
             inputRef={inputSenha}
             inputType={"password"}
@@ -128,6 +133,7 @@ export default function RegisterForm() {
           <h2>Informação Postal</h2>
           <hr className="hrFormIE" />
             <InputLabel
+              classCss={"inputLabel"}
               label={"CEP:"}
               placeHolder={"digite seu Cep"}  
               DefaultValue={cep}            
@@ -136,6 +142,7 @@ export default function RegisterForm() {
               inputType={"text"}
             />
             <InputLabel
+              classCss={"inputLabel"}
               label={"Endereço:"}
               placeHolder={"digite seu endereço"}
               inputRef={inputEndereco}
@@ -144,6 +151,7 @@ export default function RegisterForm() {
             />
 
             <InputLabel 
+              classCss={"inputLabel"}
               label={"Bairro:"}
               placeHolder={"Digite sua cidade"}
               inputRef={inputBairro}
@@ -152,6 +160,7 @@ export default function RegisterForm() {
               Disabled={respStatus !== "true"}
             />
             <InputLabel
+              classCss={"inputLabel"}
               label={"Cidade:"}
               inputType={"text"}
               placeHolder={"digite sua cidade"}
@@ -161,6 +170,7 @@ export default function RegisterForm() {
             />
           
             <InputLabel
+              classCss={"inputLabel"}
               label={"Complemento:"}
               inputType={"text"}
               inputRef={inputComplemento}

@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
-import Icons from "../../assets/Icons.png";
 import { useState } from "react";
 import { authUser } from "../../services/UsuarioServices/usuariosService";
+import LoginFacebook from "./LoginFacebook/LoginFacebook";
+import LoginGoogle from "./LoginGoogle/LoginGoogle";
 
 function Form() {
   const [email, setEmail] = useState('');
@@ -63,8 +64,9 @@ function Form() {
       {error && <p className="error-message">{error}</p>}
       {success && <p className="success-message">{success}</p>}
       <div className="Icons">
-        <p>Ou faça login como</p>
-        <img src={Icons} alt="Login Icons" />
+        <p>Ou faça login com</p>
+        <LoginGoogle/>
+        <LoginFacebook/>
       </div>
     </div>
   );

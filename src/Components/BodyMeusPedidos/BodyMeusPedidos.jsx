@@ -8,9 +8,9 @@ export default function BodyMeusPedidos() {
     <>
         <div className="body">
             <BoxMenu></BoxMenu>
-            <Routes>
-          <Route path="pedidos-info" element={<BoxMeusPedidos/>}/>
-          <Route path="minhas-informacoes" element={<BoxMinhasInformacoes/>}/>
+        <Routes>
+          <Route path="/" element={<BoxMeusPedidos/>}/>
+          <Route path="minhas-informacoes/*" element={<BoxMinhasInformacoes/>}/>
         </Routes>
         </div>
     </>
