@@ -1,14 +1,13 @@
-import BoxMinhasInformacoes from "../Components/BoxMinhasInformacoes/BoxMinhasInformacoes";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/HomeHeader/Header";
-import Label from "../Components/Label/Label";
+
 
 
 function PagamentoEfetuado() {
     return (
       <>
         <Header/>
-        <BoxMinhasInformacoes/>
+        <h1>Paginas de Sucesso</h1>
         <Footer/>
       </>
     )
